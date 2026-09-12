@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h> //pra usar booleanos
+#include <string.h> // pra usar comandos de string
 
 int main() {
 
@@ -14,7 +15,7 @@ int main() {
     char item[150];
     char search[150];
     
-    FILE *inv = fopen("inventory.txt", "w+");
+    FILE *inv = fopen("inventory.txt", "r+");
 
     // coloca o código dentro do while, é pra fazer o loop
     while (1) {
@@ -46,22 +47,22 @@ int main() {
                     scanf("%d", &quant);
                     fprintf(inv, "%d\n", quant);
 
-                    printf("Item adicionado com sucesso!");
+                    printf("Item adicionado com sucesso!\n");
                     break;
 
                 case 2:
 
                     printf("Digite o nome do item: ");
                     scanf("%s",item);
-
-                    while(fgets(search, sizeof(search), inv) != NULL){
-                        if(search == item){
+                    
+                    while(fscanf(inv, "%s",search) == 1){
+                        if(strcmp(search, item) == 0){
                             fscanf(inv, "%d", &qarch);
                             printf("Digite a quantidade a ser removida: ");
                             scanf("%d",&quant);
                             if(qarch > quant){
                                  qarch -= quant;
-                                 printf("Quantidade atualizada com sucesso!");
+                                 printf("Quantidade atualizada com sucesso!\n");
                             }else if(qarch == quant){
                                 qarch = 0;
                                 printf("Item removido do estoque!");
