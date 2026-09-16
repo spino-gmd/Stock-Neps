@@ -1,1 +1,2 @@
-Criei esse repositório para armazenar o código do projeto de Controle de Estoques da plataforma Neps Academy
+ING - I created this repository to save the various versions of the "Stock Management in C" project available on the Neps Academy platform.
+PORT - Criei este repositório para salvar as diversas versões do projeto "Controle de Estoques em C" disponível na plataforma Neps Academy.
